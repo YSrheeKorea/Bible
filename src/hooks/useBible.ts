@@ -27,7 +27,7 @@ export function useBible(version: string) {
       return;
     }
     setLoading(true);
-    fetch(`/data/bible_${version}.json`)
+    fetch(`${import.meta.env.BASE_URL}data/bible_${version}.json`)
       .then(r => r.json())
       .then(data => {
         cache[version] = data;
