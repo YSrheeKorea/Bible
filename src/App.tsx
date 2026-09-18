@@ -16,7 +16,7 @@ function App() {
               className="group flex items-center gap-space-sm focus:outline-none cursor-pointer"
               onClick={() => setActiveTab('reader')}
             >
-              <span className="font-headline-sm text-headline-sm tracking-widest text-on-surface uppercase select-none opacity-90 group-hover:opacity-100 transition-opacity">Silentium</span>
+              <span className="font-headline-sm text-headline-sm tracking-widest text-on-surface uppercase select-none opacity-90 group-hover:opacity-100 transition-opacity">My Scripture</span>
               <span className="w-1.5 h-1.5 rounded-full bg-secondary opacity-60"></span>
             </a>
             <nav className="hidden md:flex items-center gap-space-md">

@@ -10,8 +10,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.png', 'pwa-192x192.png', 'pwa-512x512.png'],
       manifest: {
-        name: 'Bible App',
-        short_name: 'Bible',
+        name: 'My Scripture',
+        short_name: 'My Scripture',
         description: 'A modern, responsive Bible reading application.',
         theme_color: '#ffffff',
         background_color: '#ffffff',

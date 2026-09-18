@@ -1,4 +1,4 @@
-# Bible App (성경 앱)
+# My Scripture (성경 앱)
 
 React, Vite, 그리고 Tailwind CSS를 활용해 만든 모던하고 반응형을 지원하는 성경 읽기 애플리케이션입니다.
 
