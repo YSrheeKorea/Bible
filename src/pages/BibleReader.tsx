@@ -88,11 +88,30 @@ export default function BibleReader({ version }: { version: string }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
       {/* Left Sidebar: Navigation */}
-      <aside className="lg:col-span-3 flex flex-col space-y-space-md lg:sticky lg:top-24 h-auto lg:max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
-        <h3 className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">
+      <aside className="lg:col-span-3 flex flex-col space-y-space-md lg:sticky lg:top-24 h-auto lg:max-h-[calc(100vh-8rem)] pr-2">
+        <h3 className="hidden lg:block font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">
           Books
         </h3>
-        <div className="flex flex-col space-y-1">
+        
+        {/* Mobile Dropdown */}
+        <div className="lg:hidden mb-4 relative">
+          <select 
+            value={selectedBook}
+            onChange={(e) => {
+              setSelectedBook(e.target.value);
+              setSelectedChapter('1');
+            }}
+            className="w-full appearance-none bg-surface-container-high text-on-surface font-body-ui text-body-ui px-4 py-3 rounded-md border border-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-secondary cursor-pointer"
+          >
+            {bible.books.map(book => (
+              <option key={book.abbr} value={book.abbr}>{book.name}</option>
+            ))}
+          </select>
+          <span className="material-symbols-outlined absolute right-3 top-3 text-[24px] text-on-surface-variant pointer-events-none">expand_more</span>
+        </div>
+
+        {/* Desktop Sidebar List */}
+        <div className="hidden lg:flex flex-col space-y-1 overflow-y-auto pb-8">
           {bible.books.map(book => (
             <button
               key={book.abbr}

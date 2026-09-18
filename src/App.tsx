@@ -56,7 +56,7 @@ function App() {
         </div>
       </header>
 
-      <main className="w-full pt-16 lg:pt-20 flex-1 bg-surface">
+      <main className="w-full pt-16 lg:pt-20 pb-16 md:pb-0 flex-1 bg-surface">
         <div className="flex flex-col w-full">
           <div className="w-full max-w-7xl mx-auto px-margin-mobile lg:px-margin py-space-md lg:py-space-xl">
             {activeTab === 'reader' && <BibleReader version={bibleVersion} />}
@@ -66,11 +66,27 @@ function App() {
         </div>
       </main>
 
-      <footer className="w-full py-4 text-center border-t border-surface-variant/30 mt-10 px-4">
+      <footer className="w-full py-4 pb-20 md:pb-4 text-center border-t border-surface-variant/30 mt-10 px-4">
         <p className="text-[10px] text-on-surface-variant/60 font-sans tracking-wide">
           본 어플리케이션에 사용된 한국어 성경 텍스트는 대한성서공회에서 발행한 ‘성경전서 개역한글판(1961년 판본)’을 사용하였으며, 영어 성경은 퍼블릭 도메인인 KJV와 ASV를 사용하였습니다. 본 판본들은 저작재산권 보호기간이 만료된 공공 저작물입니다.
         </p>
       </footer>
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="md:hidden fixed bottom-0 inset-x-0 bg-surface border-t border-surface-variant/30 flex justify-around items-center h-16 px-4 z-50 pb-safe">
+        <button onClick={() => setActiveTab('reader')} className={`flex flex-col items-center justify-center w-full h-full ${activeTab === 'reader' ? 'text-primary' : 'text-on-surface-variant'}`}>
+          <span className="material-symbols-outlined text-2xl">{activeTab === 'reader' ? 'menu_book' : 'book'}</span>
+          <span className="text-[10px] mt-1 font-medium">Reader</span>
+        </button>
+        <button onClick={() => setActiveTab('journal')} className={`flex flex-col items-center justify-center w-full h-full ${activeTab === 'journal' ? 'text-primary' : 'text-on-surface-variant'}`}>
+          <span className="material-symbols-outlined text-2xl">{activeTab === 'journal' ? 'edit_document' : 'edit'}</span>
+          <span className="text-[10px] mt-1 font-medium">Journal</span>
+        </button>
+        <button onClick={() => setActiveTab('highlights')} className={`flex flex-col items-center justify-center w-full h-full ${activeTab === 'highlights' ? 'text-primary' : 'text-on-surface-variant'}`}>
+          <span className="material-symbols-outlined text-2xl">{activeTab === 'highlights' ? 'bookmark' : 'bookmark_border'}</span>
+          <span className="text-[10px] mt-1 font-medium">Highlights</span>
+        </button>
+      </nav>
     </div>
   )
 }
